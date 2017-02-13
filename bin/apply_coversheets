@@ -1,0 +1,165 @@
+#!/usr/bin/perl -w 
+
+use FindBin;
+use lib "$FindBin::Bin/../../../perl_lib";
+
+######################################################################
+#
+#
+######################################################################
+
+=pod
+
+=head1 NAME
+
+B<apply_coversheets> - tool to apply coversheets
+
+=head1 SYNOPSIS
+
+B<apply_coversheets> I<repository_id> [B<options>]
+
+=head1 ARGUMENTS
+
+=over 8
+
+=item B<apply_coversheets> I<repository_id> [I<eprint_id> I<eprint_id> ...]
+
+Attempts to apply a coversheet to all items in the live archive that are not currently covered.
+Items that are already covered will be not be updated.
+If a list of eprint_ids is given then just those items are covered.
+
+=back
+
+=head1 OPTIONS
+
+=over 8
+
+=item B<--recreate>
+
+If this option is specified then the script will remove any existing cover and then attempt to 
+apply a coversheet to all items in the live archive i.e. in this case items that were already
+covered will be updated. 
+If a list of eprint_ids is given then just those items will be affected.
+
+=item B<--help>
+
+Print a brief help message and exit.
+
+=item B<--verbose>
+
+Explain in detail what is going on.
+
+=back   
+
+=cut
+
+
+use strict;
+use EPrints;
+use Getopt::Long;
+use Pod::Usage;
+
+my $recreate = 0;
+my $verbose = 0;
+my $help = 0;
+
+Getopt::Long::Configure("permute");
+
+GetOptions( 
+	'recreate' => \$recreate,
+	'help|?' => \$help,
+	'verbose' => \$verbose,
+) || pod2usage( 2 );
+pod2usage( 1 ) if $help;
+pod2usage( 2 ) if( scalar @ARGV == 0 ); 
+
+
+if( scalar @ARGV < 1 )
+{
+	print "\nUsage is:";
+	print "\n\t{apply_coversheet} repository_id {eprintid}\n\n";
+	exit(1);
+}
+
+my $repoid = shift @ARGV;
+
+my $ep = EPrints->new();
+my $repo = $ep->repository( $repoid );
+unless ( $repo )
+{
+	print "Unable to load repository $repoid\n";
+	exit(0); 
+}
+
+my $plugin = $repo->plugin( "Convert::AddCoversheet" );
+unless( defined $plugin )
+{
+	print "Could not load Convert::AddCoversheet plugin\n";
+        exit(0);
+}
+
+my $new_only = 1;
+$new_only = 0 if $recreate;
+apply_covers( $repo, $new_only, $verbose, $plugin, @ARGV ); 
+
+$repo->terminate;
+exit( 1 );
+
+
+=pod
+
+=item apply_covers( $repo, $new_only, $verbose, $plugin, @ids )
+
+iterates over all eprints or the list of specific eprints specified in @ids
+and calls the function cover_eprint_docs to apply a coversheet to that eprint
+
+=cut
+
+sub apply_covers
+{
+	my ( $repo, $new_only, $verbose, $plugin, @ids ) = @_;
+
+	my $ds = $repo->dataset( "archive" );
+	my $list;
+	if ( @ids )
+	{
+		$list = $ds->list( \@ids );
+	}
+	else
+	{
+		$list = $ds->search;
+	}
+
+	my $info = { covered => 0 };
+
+	$list->map( sub {
+
+		my( $repo, $ds, $eprint, $info ) = @_;
+
+		do {
+			# copy STDOUT to another filehandle so that we can redirect & restore as required
+			open (my $STDOLD, '>&', STDOUT);
+
+			unless ( $verbose )
+			{
+				open (STDOUT, '>>', '/dev/null');	
+			}
+			
+			my $covered = $repo->call( "cover_eprint_docs" , $repo, $eprint, $plugin, $new_only );
+			$info->{covered} += $covered;
+
+			unless ( $verbose )
+			{
+				# restore STDOUT
+				open (STDOUT, '>&', $STDOLD);
+			}
+		};
+
+	}, $info );
+
+	print "\nCovered ".$info->{covered}." item(s)\n" if $verbose;
+	return 1;
+}
+
+
+

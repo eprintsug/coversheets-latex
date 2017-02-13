@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+<epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
+
+  <epp:phrase id="Plugin/Screen/EPMC/LatexCoversheet:ready">Deckblätter sind bereit, auf Ihrem System genutzt zu werden. 
+    Um Template hinzuzufügen, gehen Sie zum Admin-Bereich, zum Reiter 'System Tools'.</epp:phrase>
+
+  <epp:phrase id="datasetname_coversheet">Deckblätter</epp:phrase>
+  <epp:phrase id="datasethelp_coversheet">Deckblätter für dieses Repository editieren, aktivieren oder deaktivieren.</epp:phrase>
+
+  <epp:phrase id="validate:encrypted_pdf">Sie haben eine verschlüsselte PDF-Datei hochgeladen. Bitte erwägen Sie, 
+    eine unverschlüsselte Datei hochzuladen.</epp:phrase>
+
+  <epp:phrase id="document_fieldhelp_coversheet">Deckblatt auswählen</epp:phrase>
+  <epp:phrase id="download_uncovered">Ohne Deckblatt herunterladen</epp:phrase>
+
+  <epp:phrase id="coversheet_fieldname_backfile">Rückseite(n)</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_backfile">Eine Datei mit einer oder mehreren Rückseiten zum Anfügen an ein Dokument.</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_description">Beschreibung</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_description">Die Beschreibung des Deckblatts.</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_frontfile">Deckblatt-/Titelseite(n)</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_frontfile">Eine Datei mit einer oder mehreren Deckblatt- bzw. Titelseiten zum Anfügen an 
+    ein Dokument.</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_name">Name</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_name">Der Name dieses Deckblatts.</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_notes">Bemerkungen</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_notes">Bemerkungen für andere Administratoren.</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_official_url">Offizielle URL</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_official_url">Offizielle URL</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_status">Status</epp:phrase>
+  <epp:phrase id="coversheet_fieldopt_status_active">Aktiv</epp:phrase>
+  <epp:phrase id="coversheet_fieldopt_status_deprecated">Deaktiviert</epp:phrase>
+  <epp:phrase id="coversheet_fieldopt_status_draft">Entwurf</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_status">Der Status dieses Deckblatts. Benutzer können Dokumenten nur aktive 
+    Deckblätter hinzufügen.</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_version_comments">Versionskommentare</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_version_comments">Versionskommentare</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_coversheetid">ID</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_apply_to">Anwenden auf</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_apply_to">Auf welche Dokumenttypen soll dieses Deckblatt angewendet werden?</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_apply_priority">Priorität</epp:phrase>
+  <epp:phrase id="coversheet_fieldhelp_apply_priority">Ganzzahlige Priorität. Wenn ein Dokument zu mehreren Deckblättern passt, 
+    wird dasjenige mit der höchsten Priorität verwendet.</epp:phrase>
+
+  <epp:phrase id="coversheet_fieldname_datestamp">Datumsstempel</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_lastmod">Letzte Änderung</epp:phrase>
+  <epp:phrase id="coversheet_fieldname_userid">Benutzer</epp:phrase>
+
+  <epp:phrase id="cannot_upload_encrypted_pdf">Sie sollten keine verschlüsselten PDF-Dateien hochladen. Bitte stellen Sie eine
+    unverschlüsselte Version zur Verfügung.</epp:phrase>
+  <epp:phrase id="document_fieldname_coversheet">Deckblatt</epp:phrase>
+  <epp:phrase id="Coversheet/Type:none">Keine Datei</epp:phrase>
+  <epp:phrase id="Coversheet/Type:odt">OpenOffice</epp:phrase>
+  <epp:phrase id="Coversheet/Type:ltx">LaTeX</epp:phrase>
+  <epp:phrase id="Coversheet/Type:pdf">PDF</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/CoversheetManager:description">Deckblätter verwalten.</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/CoversheetManager:help_title">Hilfe</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/CoversheetManager:help">Verwende die Liste der Dinge um die Liste der Dinge zu verwalten ...</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/CoversheetManager:title">Deckblatt-Verwaltung</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/CoversheetSearch:title">Deckblätter suchen</epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:title">Deckblatt anwenden</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:description">Das zuständige Deckblatt anwenden.</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:blurb">
+    <p>Geben Sie bis zu <epc:pin name="limit"/> eprint ids (getrennt mit Kommas) ein und klicken Sie dann auf die Schaltfläche Anwenden.</p>
+  </epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:input">Eprint ID(s):</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:action:cover:title">Anwenden</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:action:cancel:title">Abbrechen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:ignore_ids">Die folgenden IDs wurden nicht bearbeitet:<br/>
+    <epc:pin name="id_list"/>
+  </epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:no_ids">Bitte geben Sie mindestens eine ID an</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:no_valid_ids">Die eingegebenen Eprint IDs sind ungültig</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:too_many_ids">Es wurden zu viele IDs eingegeben. Nur die ersten <epc:pin name="limit"/> werden bearbeitet.</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:no_plugin">Der Convert::AddCoversheet Plugin konnte nicht geladen werden</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:covered">Die folgenden Eprints wurden mit einem Deckblatt versehen:<br/>
+    <epc:pin name="items"/>
+  </epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ReApplyCoversheet:not_covered">Die folgenden EPrints konnten nicht bearbeitet werden:<br/>
+    <epc:pin name="items"/>
+  </epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/Admin/ManageCoversheets:title">Deckblätter verwalten</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Admin/ManageCoversheets:description">Deckblätter für dieses Repository editieren, aktivieren oder deaktivieren.</epp:phrase>
+
+  <epp:phrase id="current_file">Aktuelle Datei: </epp:phrase>
+  <epp:phrase id="upload_file">Neue Datei hochladen: </epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:cancel">Abbrechen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:update">Aktualisieren</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:delete_backfile">Rückseite(n) entfernen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:delete_frontfile">Deckblatt-/Titelseite(n) entfernen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:exit">Verlassen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:coversheet_saved">Deckblatt wurde gespeichert</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:save">Speichern</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:title">Deckblatt editieren</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:file_not_ok">Es gab ein Problem beim Hochladen der Datei.</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Edit:file_removed">Seite entfernt</epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/Coversheet/New:action:create:title">Neues Deckblatt erstellen</epp:phrase>
+
+
+  <epp:phrase id="Plugin/Screen/Coversheet/Deprecate:title">Deckblatt deaktivieren</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Deprecate:sure_deprecate">Sind Sie sicher, dass Sie das Deckblatt 
+    <epc:pin name="title"/> deaktivieren möchten? Damit wird es nicht mehr Dokumenten hinzugefügt, die heruntergeladen werden.</epp:phrase>
+  <epp:phrase id="lib/submissionform:action_deprecate">Deaktivieren</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Deprecate:item_deprecated">Deckblatt deaktiviert</epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/Coversheet/Activate:title">Deckblatt aktivieren</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Activate:sure_activate">Sind Sie sicher, dass Sie das Deckblatt 
+    <epc:pin name="title"/> aktivieren möchten? Damit wird es dann Dokumenten hinzugefügt, die heruntergeladen werden.</epp:phrase>
+  <epp:phrase id="lib/submissionform:action_activate">Aktivieren</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Activate:item_activated">Item Activated</epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/Coversheet/Remove:title">Deckblatt entfernen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Remove:sure_delete">Sind Sie sicher, dass Sie das Deckblatt 
+    <epc:pin name="title"/> entfernen möchten? Es wird damit vollständig gelöscht.</epp:phrase>
+  <epp:phrase id="lib/submissionform:action_remove">Entfernen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Remove:item_removed">Deckblatt entfernt</epp:phrase>
+
+
+  <epp:phrase id="Plugin/Screen/Coversheet/View:title">Anzeige</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/View:page_title"><epc:pin name="listing"/> - <epc:pin name="desc"/></epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/View:page_detail">
+    <div>
+      <ul>
+        <li>LaTeX Datei: <epc:pin name="l_url"/></li>
+        <li>Vorschau: <epc:pin name="p_url"/></li>
+      </ul>
+    </div>
+  </epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/View:no_preview">Keine Vorschau verfügbar</epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/Coversheet/Listing:remove_column_confirm" ref="Plugin/Screen/Review:remove_column_confirm"/>
+
+  <epp:phrase id="Plugin/Screen/Coversheet/Destroy:title">Deckblatt löschen</epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Destroy:sure_delete">
+    <p>Sind Sie sicher, dass Sie das Deckblatt <em><epc:pin name="title"/></em> löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.</p>
+  </epp:phrase>
+  <epp:phrase id="Plugin/Screen/Coversheet/Destroy:item_removed" ref="Plugin/Screen/EPrint/Remove:item_removed"/>
+
+  <epp:phrase id="Plugin/Screen/Coversheet/Details:title" ref="Plugin/Screen/EPrint/Details:title"/>
+  <epp:phrase id="Plugin/Screen/Coversheet/Details:other" ref="Plugin/Screen/EPrint/Details:other"/>
+  <epp:phrase id="Plugin/Screen/Coversheet/Commit:save" ref="lib/submissionform:action_staff_save"/>
+
+  <epp:phrase id="lib/searchfield:help_counter">Zähler</epp:phrase>
+  <epp:phrase id="lib/searchfield:help_file">Die zu suchende Datei</epp:phrase>
+  <epp:phrase id="lib/searchfield:help_search">Die Suchkriterien</epp:phrase>
+
+  <epp:phrase id="Plugin/Screen/EPrint/Staff/ApplyCoversheet:action:cover:title">Deckblatt anwenden</epp:phrase>
+  <epp:phrase id="Plugin/Screen/EPrint/Staff/ApplyCoversheet:action:cover:description">Deckblatt suchen und anwenden</epp:phrase>
+  <epp:phrase id="Plugin/Screen/EPrint/Staff/ApplyCoversheet:no_plugin">Der Convert::AddCoversheet Plugin konnte nicht geladen werden</epp:phrase>
+  <epp:phrase id="Plugin/Screen/EPrint/Staff/ApplyCoversheet:covered">Deckblatt wurde hinzugefügt</epp:phrase>
+  <epp:phrase id="Plugin/Screen/EPrint/Staff/ApplyCoversheet:not_covered">Deckblatt wurde nicht hinzugefügt</epp:phrase>
+
+</epp:phrases>

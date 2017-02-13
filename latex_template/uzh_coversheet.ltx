@@ -1,0 +1,109 @@
+% Preamble
+% ---
+\documentclass{article}
+
+% Packages
+% ---  
+\usepackage[a4paper, left=25 mm, right=25 mm, top=20 mm, bottom=20 mm]{geometry} % A4 size
+\usepackage{amsmath}           % Advanced math typesetting
+\usepackage{amssymb}           % Advanced math symbols
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{lmodern}
+\usepackage[ngerman,english]{babel}    % Change hyphenation rules
+\usepackage{hyperref}          % Add a link to your document
+\usepackage{graphicx}          % Add pictures to your document
+\usepackage{listings}          % Source code formatting and highlighting
+\usepackage{tabularx}          % Table environment for stretched tables
+\usepackage{textgreek}         % Greek characters
+\usepackage{hyperref}          % For creating hyperlinks
+
+\graphicspath{ {/usr/local/eprints/archives/zora/cfg/static/images/} }
+
+% \author{M. Braendle, UZH}
+% \title{UZH Coversheet}
+
+\begin{document}
+\begin{titlepage}
+\noindent
+\begin{minipage}[t]{60 mm}
+\vspace{0pt}\includegraphics[width=60mm]{uzh_logo_en_pos.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{50mm}
+\vspace{0pt} 
+\textbf{Zurich Open Repository and Archive}
+
+University of Zurich
+
+Main Library
+
+Strickhofstrasse 39
+
+CH-8057 Zurich
+
+www.zora.uzh.ch
+\end{minipage}
+
+\vspace{10 mm}
+
+\noindent
+\begin{tabularx}{\textwidth}{X}
+  \hline 
+  Year: \#\#date\#\# \\
+  \hline
+\end{tabularx}
+
+\vspace{10 mm}
+
+\begin{center}
+\noindent
+\large{\textbf{\#\#title\#\#}}
+
+\vspace{5 mm}
+\noindent
+\normalsize{\#\#creators\#\#}
+\end{center}
+
+\vspace{10 mm}
+
+\noindent
+\#\#abstract\#\#
+
+\vspace{5 mm}
+
+\noindent
+\#\#doiurl\#\#
+
+\vspace{15 mm}
+
+\noindent
+Posted at the Zurich Open Repository and Archive, University of Zurich
+
+\noindent
+ZORA URL: \#\#zoraurl\#\#
+
+\noindent
+\#\#doccontent\#\#
+
+\vspace{3 mm}
+
+\graphicspath{ {/usr/local/eprints/archives/zora/cfg/static/license_images/} }
+
+\noindent
+\#\#license\#\#
+
+\vspace{5 mm}
+
+\noindent
+Originally published at: 
+
+\noindent
+\#\#citation\#\#
+
+\noindent
+\#\#doiurl\#\#
+
+\end{titlepage}
+\end{document}
