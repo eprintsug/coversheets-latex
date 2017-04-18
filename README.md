@@ -1,5 +1,5 @@
 # coversheets-latex
-##Coversheets in the traditional LaTeX style
+## Coversheets in the traditional LaTeX style
 
 This Coversheets plugin allows to use LaTeX (https://www.latex-project.org) to create a 
 coversheet. It is a modification of the existing Coversheets plugin 
@@ -42,12 +42,12 @@ Creative Commons license batch.
 Developed by Peter West on behalf of University of Zurich, Switzerland
 who have contributed this development to the E-Prints Community.
 
-##Requirements
+## Requirements
 
 TeX Live 2015 or newer.
 
 
-##General setup
+## General setup
 
 The setup procedure consists of the following steps
 
@@ -57,14 +57,14 @@ The setup procedure consists of the following steps
 - Editing the LaTeX template
 
 
-###Installation
+### Installation
 
 Copy the content of the bin and cfg directories to the respective 
 {eprints_root}/archives/{yourarchive}/bin and {eprints_root}/archives/{yourarchive}/cfg 
 directories.
 
 
-###Configuration
+### Configuration
 
 Edit the cfg.d/z_coversheets.pl file. Adjust the paths in
 
@@ -83,12 +83,12 @@ DOI or a URL), content, and license batch (see
 
 Restart the web server after having made changes to the configuration.
 
-###Update the database
+### Update the database
 
 To add the coversheet dataset fields, update the database with `epadmin update`.
 
 
-###Editing the LaTeX template 
+### Editing the LaTeX template 
 
 latex_template/uzh_coversheet.ltx contains a commented LaTeX template for a coversheet 
 that is used by University of Zurich. A tag is enclosed by \#\# markers: Eg. \#\#date\#\# . 
@@ -96,9 +96,9 @@ that is used by University of Zurich. A tag is enclosed by \#\# markers: Eg. \#\
 Adapt this template to your needs.
 
 
-##Use
+## Use
 
-###Admin Interface
+### Admin Interface
 
 Visit the Admin webpage of your repository and choose tab System Tools, button 
 Manage Coversheets.
@@ -113,7 +113,7 @@ Using the Admin webpage, tab System Tools, button Apply Coversheet, it is possib
 reapply a coversheet to a single eprint or several eprints.
 
 
-###Scripts
+### Scripts
 
 bin/apply_coversheets can be used to apply coversheets to all or selected items of a 
 repository. Use `perldoc apply_coversheets` to print a short description of the script 
@@ -122,12 +122,12 @@ and its options.
 bin/remove coversheets tries to remove a coversheet.
 
 
-###Logging
+### Logging
 
 Coversheet application is logged to {eprints_root}/var/coversheet.log .
 
 
-##Remark
+## Remark
 Some of the functionailty is also available from some older plugins that have worked 
 well for a number of more venerable EPrints repositories
 
