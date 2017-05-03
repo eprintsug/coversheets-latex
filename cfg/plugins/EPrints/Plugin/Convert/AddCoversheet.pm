@@ -14,7 +14,7 @@ use utf8;
 
 use File::Copy;
 use Cwd;
-use Encode;
+use Encode qw(encode decode);
 
 use EPrints::Plugin::Convert;
 our @ISA = qw/ EPrints::Plugin::Convert /;
@@ -49,15 +49,15 @@ sub can_convert
 {
 	my ( $plugin, $doc ) = @_;
 
-        my %types;
+	my %types;
 
-        # Get the main file name
-        my $fn = $doc->get_main() or return ();
+	# Get the main file name
+	my $fn = $doc->get_main() or return ();
         
-        if( $fn =~ /\.($EXTENSIONS_RE)$/oi )
-        {
-        	$types{"coverpage"} = { plugin => $plugin, };
-        }
+	if( $fn =~ /\.($EXTENSIONS_RE)$/oi )
+	{
+		$types{"coverpage"} = { plugin => $plugin, };
+	}
         
 	return %types;
 }
@@ -154,14 +154,14 @@ sub export
 	my $frontfile_path = $temp_dir . '/frontfile.pdf';
 	if ( ! -e $frontfile_path )
 	{
-                EPrints::DataObj::Coversheet->log( $repo, "[Convert::AddCoversheet] Unexpected absence of coversheet files." );
-                return;
-        }
+		EPrints::DataObj::Coversheet->log( $repo, "[Convert::AddCoversheet] Unexpected absence of coversheet files." );
+		return;
+	}
 
-        unless( -d $target_dir )
-        {
-                EPrints::Platform::mkdir( $target_dir);
-        }
+	unless( -d $target_dir )
+	{
+		EPrints::Platform::mkdir( $target_dir);
+	}
 
 	my $output_file = EPrints::Platform::join_path( $target_dir, $doc->get_main );
 	# my $output_file = $target_dir."/".$doc->get_main;
@@ -172,12 +172,18 @@ sub export
 	}
 
 	# EPrints Services/tmb 2011-08-26 get properly escaped filename via File dataobj
-	# UZH CHANGE ZORA-359 2016/05/23/mb capture problem with umlauts
+	# UZH CHANGE ZORA-359 2016/05/23/mb, 2017/04/25/mb
+	# try a series of encodes/decodes of the filename to find the file object in the database
 	my $filename_main = $doc->get_main;
-	my $filename;
-        $filename = encode( 'UTF-8', $filename_main) if ( !defined $doc->get_stored_file( $filename_main ) );
-        $filename = EPrints::System->sanitise( $filename_main ) if ( !defined $doc->get_stored_file( $filename ) );
-        my $stored_file = $doc->get_stored_file( $filename );
+	my $filename = $filename_main;
+	$filename = encode( 'UTF-8', $filename_main) if ( !defined $doc->get_stored_file( $filename ) );
+	$filename = decode( 'ISO-8859-1', $filename_main) if ( !defined $doc->get_stored_file( $filename ) );
+	$filename = decode( 'cp437', $filename_main) if ( !defined $doc->get_stored_file( $filename ) );
+	$filename = decode( 'UTF-16', $filename_main) if ( !defined $doc->get_stored_file( $filename ) );
+
+	$filename = EPrints::System->sanitise( $filename_main ) if ( !defined $doc->get_stored_file( $filename ) );
+	my $stored_file = $doc->get_stored_file( $filename );
+
 	if ( !defined $stored_file )
 	{
 		my $eprintid = $doc->get_value( "eprintid" );
@@ -185,7 +191,8 @@ sub export
 		return ( $doc->get_main );
 	}
 	# END UZH CHANGE
-	my $doc_path = $stored_file->get_local_copy();
+
+	my $doc_path = $doc->get_stored_file( $doc->get_main )->get_local_copy();
 
 	my $temp_output_file = $temp_dir.'/temp.pdf';
 
@@ -229,7 +236,5 @@ sub export
 	# return the filename without the abs. path
 	return( $doc->get_main );
 }
-
-
 
 1;
