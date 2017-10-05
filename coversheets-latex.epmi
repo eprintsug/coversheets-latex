@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<epm id='http://template.ulcc.ac.uk/id/epm/coversheets-latex' xmlns='http://eprints.org/ep2/data/2.0'>
+  <epmid>coversheets-latex</epmid>
+  <documents>
+    <document>
+      <files>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>plugins/EPrints/Plugin/Coverpage.pm</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>1343b54b8874ea82389b051efb0d8dc4</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>4567</filesize>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>plugins/EPrints/Plugin/Convert/CoverLatex.pm</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>f43f42f08384771c9538fa525572f2f8</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>12077</filesize>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>lang/en/phrases/coverpage.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>0121011151cb754ae4156bbae55ca725</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1404</filesize>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>0a65b007efa35ae8f6ca7afa023908ba</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>2529</filesize>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>epm/coversheets-latex/cfg/citations/eprint/coverpage_latex.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>35888bb3f2b8063c4940a408d713a4d3</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>2859</filesize>
+        </file>
+      </files>
+      <mime_type>application/xml</mime_type>
+      <format>other</format>
+      <main>epm/coversheets-latex/cfg/citations/eprint/coverpage_latex.xml</main>
+      <content>install</content>
+    </document>
+  </documents>
+  <version>0.6.0</version>
+  <creators>
+    <item>
+      <name>
+        <family>Name</family>
+        <given>Your</given>
+      </name>
+      <id>you@email.address</id>
+    </item>
+  </creators>
+  <datestamp>2017-05-19 17:01:32</datestamp>
+  <title>Coversheets-Latex</title>
+  <description>This is the description.</description>
+  <requirements>The following modules are required: X, Y, Z</requirements>
+  <home_page>http://github.com/your/project</home_page>
+</epm>

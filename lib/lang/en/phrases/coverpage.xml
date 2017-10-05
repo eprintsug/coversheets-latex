@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+<epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
+
+
+<!-- ************************* Document Fields ************************* -->
+
+<epp:phrase id="document_fieldname_coverpage">Coverpage</epp:phrase>
+<epp:phrase id="document_fieldhelp_coverpage">Prepend an automatically generated coverpage? (This is only supported for PDF documents.)</epp:phrase>
+<epp:phrase id="document_radio_coverpage"><label><epc:pin name="true"/>Yes, prepend an automatically generated coverpage.</label><br/><label><epc:pin name="false"/>No, do not prepend a coverpage.</label></epp:phrase>
+
+
+<!-- ************************* Coverpage template ************************* -->
+
+
+
+<!-- ************************* CoverLatex template ************************* -->
+
+<epp:phrase id="coverlatex:validate_encrypted">This <epc:pin name="fieldname">document</epc:pin> is encrypted. No coverpage can be prepended. Disabling automatic coverpage generation.</epp:phrase>
+
+<!-- ************************* validate_document ************************* -->
+
+<epp:phrase id="validate:coverpage_disabled">No <epc:pin name="fieldname">coverpage</epc:pin> will be prepended.</epp:phrase>
+
+</epp:phrases>
+
+<!--
+;;; Local Variables: ***
+;;; coding: utf-8 ***
+;;; End: ***
+-->

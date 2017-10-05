@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!-- -*- mode: xml; coding: utf-8 -*- -->
+
+<!-- LaTeX coverpage -->
+
+<cite:citation xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:cite="http://eprints.org/ep3/citation"
+  xmlns:epc="http://eprints.org/ep3/control">
+\documentclass[a4paper,11pt,halfparskip]{scrartcl}
+% newer LaTeX versions: parskip=half
+
+\usepackage[margin=2cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+% newer LaTeX versions:
+% \usepackage{ucs}
+% \usepackage[utf8x]{inputenc}
+
+\usepackage[T1]{fontenc}
+
+%usepackage{helvet}
+\renewcommand\familydefault{phv}
+%fontfamily{phv}\fontseries{m}\fontshape{n}\selectfont
+%fontfamily{verdana}%selectfont
+
+\usepackage[english]{babel}
+%usepackage[none]{hyphenat} 
+
+\usepackage{eso-pic}
+
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+  \pdfcompresslevel=9
+\else
+  \usepackage{graphicx}
+\fi
+\graphicspath{{<epc:print expr="$config{config_path}"/>/static/images/}}
+
+\AddToShipoutPicture{%
+  \setlength{\unitlength}{1cm}%
+  % \put(15.4,26.2){\includegraphics[width=4.5cm,keepaspectratio=true]{sitelogo}}%
+  % \put(18,23.8){\includegraphics[width=1.6cm,keepaspectratio=true]{equis_logo}}%
+}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+
+\makeatletter
+\newcommand{\orig@minipagerestore}{}
+\let\orig@minipagerestore=\@minipagerestore
+\def\@minipagerestore{%
+    \orig@minipagerestore
+    \setlength{\parindent}{0pt}%
+    \setlength{\parskip}{1ex}%
+  }
+\makeatother
+
+% avoid overfull hboxes
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+
+\sloppy
+
+\begin{document}
+\thispagestyle{empty}
+
+\vspace*{5cm}
+\begin{center}
+\huge ePub Institutional Repository
+\end{center}
+\bigskip
+
+\begin{hyphenrules}{nohyphenation}
+\Large
+<epc:print expr="$latex{creators_givenfirst}"/>
+\smallskip
+
+<epc:print expr="$latex{title}"/>
+\end{hyphenrules}
+\bigskip
+
+<epc:print expr="$latex{type}"/>\\
+<epc:choose><epc:when test="is_set(refereed)">(Refereed)</epc:when>
+<epc:otherwise>\\</epc:otherwise></epc:choose>
+
+\begin{center}%
+\fbox{%
+\begin{minipage}[t]{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
+\begin{hyphenrules}{nohyphenation}
+\textit{Original Citation:}\\
+<epc:print expr="$latex{citation}"/>
+\end{hyphenrules}
+% TODO
+% DOI: 10.1093/oxrep/grj001
+
+This version is available at: \url{<epc:print expr="$latex{url}"/>}\\
+Available in ePub: <epc:print expr="$latex{datestamp_long}"/>
+
+ePub, the institutional repository of the Virtual University of
+Examples and Tests, is provided by the University Library and the
+IT-Services. The aim is to enable open access to the scholarly output
+of the VUET.
+\end{minipage}%
+}
+\end{center}
+
+\vspace{\stretch{1}}
+\begin{flushright}
+\url{http://epub.example.com/}
+\end{flushright}
+\end{document}
+</cite:citation>
+
+<!-- Keep this comment at the end of the file
+  Local variables:
+  mode: xml
+  coding: utf-8
+  End:
+-->
