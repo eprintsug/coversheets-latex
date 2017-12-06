@@ -75,12 +75,12 @@ sub can_convert
 
         # Get the main file name
         my $fn = $doc->get_main() or return ();
-        
+
         if( $fn =~ /\.($EXTENSIONS_RE)$/oi )
         {
         	$types{"coverpage"} = { plugin => $plugin, };
         }
-        
+
 	return %types;
 }
 
@@ -149,13 +149,13 @@ sub export
 	$plugin->log( "execute cd $latex_dir && $pdflatex -interaction=nonstopmode cover.tex </dev/null $redir_out; rc=$rc" )
 	        if ($noise);
 #    system("cp -r $latex_dir /var/tmp/");
-	if ($rc)
-	{
-		$latex_dir->{UNLINK} = 0;
-		$plugin->log( "pdflatex failed with rc ".($rc >> 8) );
-		return;
-	}
-    
+	# if ($rc)
+	# {
+	# 	$latex_dir->{UNLINK} = 0;
+	# 	$plugin->log( "pdflatex failed with rc ".($rc >> 8) );
+	# 	return;
+	# }
+
 	# check it worked
         my $pdf_file = EPrints::Platform::join_path( $latex_dir, "cover.pdf" );
 	# $plugin->log( `ls -l $pdf_file` );
@@ -365,9 +365,9 @@ sub _xml2latex {
   } elsif (EPrints::XML::is_dom( $node, "DocumentFragment" ) ) {
     push(@parts,
 	 map(&_xml2latex($_), $node->getChildNodes));
-  } elsif(EPrints::XML::is_dom($node, 
-			       "Text", 
-			       "CDATASection", 
+  } elsif(EPrints::XML::is_dom($node,
+			       "Text",
+			       "CDATASection",
 			       "ProcessingInstruction",
 			       "EntityReference" ) ) {
     my $txt = $node->nodeValue();
