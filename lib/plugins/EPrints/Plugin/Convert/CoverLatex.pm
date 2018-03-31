@@ -149,12 +149,12 @@ sub export
 	$plugin->log( "execute cd $latex_dir && $pdflatex -interaction=nonstopmode cover.tex </dev/null $redir_out; rc=$rc" )
 	        if ($noise);
 #    system("cp -r $latex_dir /var/tmp/");
-	# if ($rc)
-	# {
-	# 	$latex_dir->{UNLINK} = 0;
-	# 	$plugin->log( "pdflatex failed with rc ".($rc >> 8) );
-	# 	return;
-	# }
+	 if ($rc)
+	 {
+	 	$latex_dir->{UNLINK} = 0;
+	 	$plugin->log( "pdflatex failed with rc ".($rc >> 8) );
+	 	return;
+	 }
 
 	# check it worked
         my $pdf_file = EPrints::Platform::join_path( $latex_dir, "cover.pdf" );
@@ -273,7 +273,12 @@ sub render_with_property {
 
 sub get_document_file {
   my ($self, $doc) = @_;
-  return $doc->local_path."/".$doc->get_main;
+
+  my( $file ) = $doc->stored_file( $doc->value( "main" ) );
+  return if !defined $file;
+
+  return $file->get_local_copy;
+
 }
 
 sub validate {
