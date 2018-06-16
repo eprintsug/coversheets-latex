@@ -149,7 +149,7 @@ sub export
 	$plugin->log( "execute cd $latex_dir && $pdflatex -interaction=nonstopmode cover.tex </dev/null $redir_out; rc=$rc" )
 	        if ($noise);
 #    system("cp -r $latex_dir /var/tmp/");
-	 if ($rc)
+	 if (($rc >> 8) gt 1)
 	 {
 	 	$latex_dir->{UNLINK} = 0;
 	 	$plugin->log( "pdflatex failed with rc ".($rc >> 8) );
