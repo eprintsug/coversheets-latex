@@ -51,6 +51,11 @@ $c->add_trigger( EP_TRIGGER_DOC_URL_REWRITE, sub
 	my( %args ) = @_;
 
 	my( $request, $doc, $relations, $filename ) = @args{qw( request document relations filename )};
+	# UZH CHANGE ZORA-382 2019/02/20/mb Google Bot gets original document
+	my $connection = $request->connection();
+	my $client_ip = $connection->remote_ip();
+	return EP_TRIGGER_OK if ( $client_ip =~ /^66\.249\./ );
+	# END UZH CHANGE ZORA-382
 	return EP_TRIGGER_OK unless defined $doc;
 	my $repo = $doc->repository;
 
