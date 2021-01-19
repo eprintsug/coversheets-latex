@@ -8,173 +8,224 @@ package EPrints::Plugin::Coverpage;
 use strict;
 use warnings;
 use Scalar::Util;
+use Digest::MD5 qw(md5_hex);
 
 our @ISA = qw/ EPrints::Plugin /;
 
-sub new {
-  my( $class, %opts ) = @_;
-  my $self = $class->SUPER::new( %opts );
-  $self->{name} = "Coverpage";
-  return $self;
+sub new
+{
+    my( $class, %opts ) = @_;
+    my $self = $class->SUPER::new( %opts );
+    $self->{name} = "Coverpage";
+    return $self;
 }
 
-sub _get_coverpages {
-  my ($self, $doc) = @_;
-  my @relations = (EPrints::Utils::make_relation('hasCoverPageVersion'), );
-  # EPrints::Utils::make_relation( "hasVolatileVersion")
-  return @{$doc->get_related_objects(@relations)};
+sub get_metadata
+{
+    my( $self, $eprint, $doc ) = @_;
+
+    my $repo = $self->{'repository'};
+    my $ds = $eprint->dataset;
+
+    my %coverpage_fields = %{$repo->get_conf( "coverpage", "metadata" )};
+    my %data;
+    foreach my $key ( keys %coverpage_fields )
+    {
+        if( ref( $coverpage_fields{$key} ) eq "CODE" ) # we have a custom function defined for this coverpage field
+        {
+            $data{$key} = &{$coverpage_fields{$key}}( $eprint, $doc );
+        }
+        elsif( !defined $coverpage_fields{$key} ) # just get the value of the field
+        {
+            # get the field
+            # first does the field exist?
+            my @fnames = split /[\.\;]/, $key;
+            my $fname = $fnames[0];
+            next unless $ds->has_field( $fname );
+
+            # if field exists, get the metafield for the appropriate dataset and with the specified render options
+            my $field = EPrints::Utils::field_from_config_string( $ds, $key );
+
+            #make sure we're dealing with the right kind of object
+            my $dataobj = $eprint;
+            if( $field->dataset->id eq "document" )
+            {
+                $dataobj = $doc;
+            }
+
+            # render the value
+            my $value = $field->get_value( $dataobj );
+            $data{$key} = $field->render_value( $repo, $value, 0, 0, $dataobj );
+        }
+        elsif( defined $coverpage_fields{$key} ) # we have a value we can simply pass along as is
+        {
+            $data{$key} = $coverpage_fields{$key};   
+        }
+    }
+
+    return %data;
 }
 
-sub get_coverpage {
-  my ($self, $doc) = @_;
-  my @cpages = $self->_get_coverpages($doc);
-  if (@cpages == 0) {
-    $self->log("No CP found for doc id ".$doc->get_id());
-  } elsif (@cpages > 1) {
-    $self->log("More than one CP found for doc id ".
-			       $doc->get_id());
-  }
-  return $cpages[0];
+# gets any existing coverpage docs for the document based on the documents related docs
+sub _get_coverpages
+{
+    my( $self, $doc ) = @_;
+    my @relations = ( EPrints::Utils::make_relation( 'hasCoverPageVersion ') );
+    return @{$doc->get_related_objects( @relations )};
+}
+
+# returns the first coverpage we know of (but ideally we shouldn't have more than one!)
+sub get_coverpage
+{
+    my( $self, $doc ) = @_;
+
+    my @cpages = $self->_get_coverpages( $doc );
+    if( @cpages == 0 )
+    {
+        $self->log( "No CP found for doc id " . $doc->get_id() );
+    }
+    elsif( @cpages > 1 )
+    {
+        $self->log( "More than one CP found for doc id " . $doc->get_id() );
+    }
+    return $cpages[0];
 };
 
 sub doc_type_supported { shift->get_conversion_plugin( @_ ) }
 
-sub get_conversion_plugin {
-  my ($self, $doc) = @_;
-  my $convert = $self->{'repository'}->plugin('Convert');
-  my %handler = $convert->can_convert($doc, 'coverpage');
-  unless (%handler) {
-    return undef;
-  }
-  return $handler{'coverpage'}{'plugin'};
+sub get_conversion_plugin
+{
+    my( $self, $doc ) = @_;
+    my $convert = $self->{'repository'}->plugin('Convert');
+    my %handler = $convert->can_convert( $doc, 'coverpage' );
+    unless( %handler )
+    {
+        return undef;
+    }
+    return $handler{'coverpage'}{'plugin'};
 }
 
-sub make_coverpage {
-  my ($self, $doc, %opts) = @_;
-  my $repo = $self->{'repository'};
+sub make_coverpage
+{
+    my( $self, $doc, %opts ) = @_;
+    my $repo = $self->{'repository'};
 
-  my $c_plugin = $self->get_conversion_plugin($doc);
-  unless ($c_plugin) {
-    $self->log("no convert handler for coverpage (doc name: ".
-	       $doc->get_main().", type: ".$doc->get_type.") found!");
-    return undef;
-  }
-
-  if (exists $opts{'coverpage_template'}) {
-    $c_plugin->set_content_template($opts{'coverpage_template'});
-  }
-
-  # use $doc->get_type since a coverpage convert plugin will not change the type
-  my $cpdoc = $c_plugin->convert($doc->get_parent, $doc, $doc->get_type);
-  if ($cpdoc) {
-    $doc->add_object_relations($cpdoc,
-			       EPrints::Utils::make_relation( "hasCoverPageVersion" ) =>
-			       EPrints::Utils::make_relation( "isCoverPageVersionOf" ));
-    $cpdoc->commit;
-    $doc->commit;
-    # $doc->commit also triggers a $eprint->commit
-    # fake the mtime of the coverpage to be at least the lastmod time of the eprint
-    my $cpfile = $cpdoc->get_stored_file($cpdoc->get_main);
-    my $eprint = $doc->get_parent();
-    if ($cpfile && $eprint) {
-      $cpfile->set_value('mtime', $eprint->get_value('lastmod'));
-      $cpfile->commit;
+    my $c_plugin = $self->get_conversion_plugin( $doc );
+    unless( $c_plugin )
+    {
+        $self->log("no convert handler for coverpage (doc name: " . $doc->get_main() . ", type: " . $doc->get_type . ") found!");
+        return undef;
     }
-  } else {
-    $self->log("Unable to convert document!");
-  }
-  
-  return $cpdoc;
+
+    if( exists $opts{'coverpage_template'} )
+    {
+        $c_plugin->set_content_template( $opts{'coverpage_template'} );
+    }
+
+    # use $doc->get_type since a coverpage convert plugin will not change the type
+    my $cpdoc = $c_plugin->convert( $doc->get_parent, $doc, $doc->get_type );
+    if( $cpdoc )
+    {
+        $doc->add_object_relations($cpdoc,
+            EPrints::Utils::make_relation( "hasCoverPageVersion" ) =>
+            EPrints::Utils::make_relation( "isCoverPageVersionOf" ));
+        $cpdoc->commit;
+    
+        my $eprint = $doc->get_parent();
+    
+        # get a hash of all the relevant data used to create the coverpage so we can check in future if any of it has changed and we might need a new coverpage
+        my %data = $self->get_metadata( $eprint, $doc );
+        $doc->set_value( 'coverpage_hash', md5_hex( %data ) );
+        $doc->commit;
+    }
+    else
+    {
+        $self->log( "Unable to convert document!" );
+    }
+    return $cpdoc;
 };
 
-sub remove_coverpage {
-  my ($self, $doc, @cpages) = @_;
-  unless (@cpages) {
-    @cpages = $self->_get_coverpages($doc);
-  }
-  for my $cp (@cpages) {
-    $self->log("Removing CP id ".$cp->get_id().
-			       " from doc id ".$doc->get_id());
-    $doc->remove_object_relations($cp);
-    $cp->remove();
-  }
-  $doc->commit();
-}
-
-sub replace_coverpage {
-  my ($self, $doc) = @_;
-  $self->remove_coverpage($doc);
-  return $self->make_coverpage($doc);
-}
-
-sub is_current {
-  my ($self, $doc, $cp) = @_;
-  my $repo = $self->{'repository'};
-
-  unless ($cp) {
-    $cp = $self->get_coverpage($doc);
-  }
-  unless ($cp) {
-    return 0;
-  }
-
-  my $doc_mtime = $self->get_doc_main_file_mtime($doc);
-  unless ($doc_mtime) {
-    $self->log("Unable to get mtime of the documents main file!");
-    return undef;
-  }
-
-  my $eprint = $doc->get_parent();
-  my $ep_lastmod = 0;
-  if ($eprint) {
-    my $lastmod = $eprint->get_value('lastmod');
-    if ($lastmod) {
-      $ep_lastmod = EPrints::Time::datestring_to_timet($repo, $lastmod);
+sub remove_coverpage
+{
+    my( $self, $doc, @cpages ) = @_;
+    unless( @cpages ) # we've not been told which coverpages to remove, so lets get all the coverpages
+    {
+        @cpages = $self->_get_coverpages($doc);
     }
-  }
-
-  my $cp_mtime = $self->get_doc_main_file_mtime($cp);
-  if ($doc_mtime < $cp_mtime &&
-      $ep_lastmod <= $cp_mtime) {
-    $self->log("CP is current.");
-    return 1;
-  } else {
-    $self->log("CP needs to be updated.");
-    return 0;
-  }
-}
-
-sub get_current_coverpage {
-  my ($self, $doc) = @_;
-  my $repo = $self->{'repository'};
-  my $cp = $self->get_coverpage($doc);
-  my $is_current;
-  if ($cp) {
-    $is_current = $self->is_current($doc, $cp);
-    unless (defined $is_current) {
-      return undef;
+ 
+    for my $cp ( @cpages )
+    {
+        $self->log( "Removing CP id ". $cp->get_id() . " from doc id " . $doc->get_id() );
+        $doc->remove_object_relations( $cp ); # remove relation from original doc
+        $cp->remove(); # and remove the coverpage
     }
-  }
-  unless ($cp && $is_current) {
-    $cp = $self->replace_coverpage($doc);
-  }
-  return $cp;
+    $doc->commit();
 }
 
-sub get_doc_main_file_mtime {
-  my ($self, $doc) = @_;
-  my $file = $doc->get_stored_file($doc->get_main);
-  unless ($file) {
-    return undef;
-  }
-  my $mtime_str = $file->get_value('mtime');
-  unless ($mtime_str) {
-    return undef;
-  }
-  return EPrints::Time::datestring_to_timet(undef, $mtime_str);
+sub replace_coverpage
+{
+    my ($self, $doc) = @_;
+    $self->remove_coverpage( $doc );
+    return $self->make_coverpage( $doc );
 }
 
-sub log {
-  my $self = shift;
-  $self->{'repository'}->log('['.$self->{'id'}."]: @_");
+sub is_current
+{
+    my( $self, $doc, $cp ) = @_;
+    my $repo = $self->{'repository'};
+
+    # get a coverpage
+    unless( $cp ) #
+    {
+        $cp = $self->get_coverpage($doc);
+    }
+    unless( $cp )
+    {
+        return 0;
+    }
+    # get the conversion plugin
+    my $c_plugin = $self->get_conversion_plugin($doc);
+    unless( $c_plugin )
+    {
+        $self->log("no convert handler for coverpage (doc name: ". $doc->get_main() . ", type: " . $doc->get_type . ") found!");
+        return undef;
+    }
+
+    # get the document's coverpage hash value - this is used to determine if the current coverpage is up-to-date
+    my $cpage_hash = $doc->get_value( "coverpage_hash" );
+    unless( $cpage_hash )
+    {
+        $self->log( "Unable to get a coverpage data hash for the document!" );
+        return undef; # there is no coverpage hash for the doc, so we can assume it is not current
+    }
+
+    # generate an up to date coverpage hash to compare with the one stored against the document
+    my $eprint = $doc->get_parent();
+    my $current_hash = 0;
+
+    if( $eprint )
+    {
+        # generate a new coverpage data hash to see if anything has changed
+        # first get the data we'd use to generate a coverpage
+        my %data = $self->get_metadata( $eprint, $doc );
+        $current_hash = md5_hex(%data);
+    }
+
+    # now compare our newly generated hash with the one stored by the document
+    if( $current_hash eq $cpage_hash )
+    {
+        $self->log( "CP is current." );
+        return 1;
+    }
+    else
+    {
+        $self->log( "CP needs to be updated." );
+        return 0;
+    }
+}
+
+sub log
+{
+    my $self = shift;
+    $self->{'repository'}->log('['.$self->{'id'}."]: @_");
 }
