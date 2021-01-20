@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <epm xmlns='http://eprints.org/ep2/data/2.0' id='http://localhost:8080/id/epm/coversheets-latex'>
   <epmid>coversheets-latex</epmid>
-  <uri>http://192.168.23.142/id/epm/coversheets-latex</uri>
+  <uri>http://localhost:8080/id/epm/coversheets-latex</uri>
   <documents>
     <document>
       <files>
@@ -361,7 +361,7 @@ eydyZXBvc2l0b3J5J30tPmxvZygnWycuJHNlbGYtPnsnaWQnfS4iXTogQF8iKTsKfQoKMTsK
           <datasetid>document</datasetid>
           <filename>plugins/EPrints/Plugin/Coverpage.pm</filename>
           <mime_type>text/plain</mime_type>
-          <hash>4f1e9465f3cbbb2c3a859fe0c53650d5</hash>
+          <hash>344018cd4c8afb8d2c2d4e42a00bcfef</hash>
           <hash_type>MD5</hash_type>
           <filesize>6721</filesize>
           <data encoding='base64'>cGFja2FnZSBFUHJpbnRzOjpQbHVnaW46OkNvdmVycGFnZTsKCiMKIyAkSWQ6IENvdmVycGFnZS5w
@@ -403,7 +403,7 @@ CiAgICByZXR1cm4gJWRhdGE7Cn0KCiMgZ2V0cyBhbnkgZXhpc3RpbmcgY292ZXJwYWdlIGRvY3Mg
 Zm9yIHRoZSBkb2N1bWVudCBiYXNlZCBvbiB0aGUgZG9jdW1lbnRzIHJlbGF0ZWQgZG9jcwpzdWIg
 X2dldF9jb3ZlcnBhZ2VzCnsKICAgIG15KCAkc2VsZiwgJGRvYyApID0gQF87CiAgICBteSBAcmVs
 YXRpb25zID0gKCBFUHJpbnRzOjpVdGlsczo6bWFrZV9yZWxhdGlvbiggJ2hhc0NvdmVyUGFnZVZl
-cnNpb24gJykgKTsKICAgIHJldHVybiBAeyRkb2MtPmdldF9yZWxhdGVkX29iamVjdHMoIEByZWxh
+cnNpb24nICkgKTsKICAgIHJldHVybiBAeyRkb2MtPmdldF9yZWxhdGVkX29iamVjdHMoIEByZWxh
 dGlvbnMgKX07Cn0KCiMgcmV0dXJucyB0aGUgZmlyc3QgY292ZXJwYWdlIHdlIGtub3cgb2YgKGJ1
 dCBpZGVhbGx5IHdlIHNob3VsZG4ndCBoYXZlIG1vcmUgdGhhbiBvbmUhKQpzdWIgZ2V0X2NvdmVy
 cGFnZQp7CiAgICBteSggJHNlbGYsICRkb2MgKSA9IEBfOwoKICAgIG15IEBjcGFnZXMgPSAkc2Vs

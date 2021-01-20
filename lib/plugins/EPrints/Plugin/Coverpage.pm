@@ -70,7 +70,7 @@ sub get_metadata
 sub _get_coverpages
 {
     my( $self, $doc ) = @_;
-    my @relations = ( EPrints::Utils::make_relation( 'hasCoverPageVersion ') );
+    my @relations = ( EPrints::Utils::make_relation( 'hasCoverPageVersion' ) );
     return @{$doc->get_related_objects( @relations )};
 }
 
