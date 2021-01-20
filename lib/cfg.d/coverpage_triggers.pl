@@ -40,7 +40,7 @@ $c->add_trigger( EPrints::Const::EP_TRIGGER_DOC_URL_REWRITE, sub {
     if( $cp_plugin->is_current( $doc ) )
     {
         $repo->log( "current coverpage for doc " . $doc->get_id . " exists" ) if( $noise );
-        return undef;
+        unshift @$relations, "hasCoverPageVersion";
     } 
     else # we need a brand new coverpage
     {
@@ -60,5 +60,6 @@ $c->add_trigger( EPrints::Const::EP_TRIGGER_DOC_URL_REWRITE, sub {
             ( $eprint ? $eprint->get_id : '?' ) . ") failed!" ) if( $noise );
             return undef;
         }
+        unshift @$relations, "hasCoverPageVersion";
     }
 });

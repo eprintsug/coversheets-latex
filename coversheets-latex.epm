@@ -495,15 +495,22 @@ LT57J3JlcG9zaXRvcnknfS0+bG9nKCdbJy4kc2VsZi0+eydpZCd9LiJdOiBAXyIpOwp9Cg==
   <creators>
     <item>
       <name>
-        <family>Name</family>
-        <given>Your</given>
+        <family>Fyson</family>
+        <given>Will</given>
       </name>
-      <id>you@email.address</id>
+      <id>will.fyson@cosector.com</id>
+    </item>
+    <item>
+      <name>
+        <family>McNicholl</family>
+        <given>Rory</given>
+      </name>
+      <id>rory.mcnicholl@london.ac.uk</id>
     </item>
   </creators>
   <datestamp>2018-06-20 06:41:18</datestamp>
   <title>Coversheets-Latex</title>
-  <description>This is the description.</description>
-  <requirements>The following modules are required: X, Y, Z</requirements>
-  <home_page>http://github.com/your/project</home_page>
+  <description>A plugin for creating coversheets using LaTeX. An eprints citation file comprising of LaTeX and epc print statements is used to describe the coversheet and inject eprints metadata into the appropriate parts of the coversheet. A new PDF for the coversheet-ed version is then produced when a user requests the document. A relation is formed between the original and the coversheet-ed version, and when any of the metadata used to generate the coversheet is changed, a new coverhseet document will be generated the next time the document is requsted.</description>
+  <requirements>TeX Live 2015 or newer.</requirements>
+  <home_page>https://github.com/eprintsug/coversheets-latex</home_page>
 </epm>
