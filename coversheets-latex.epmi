@@ -1,10 +1,34 @@
 <?xml version='1.0' encoding='utf-8'?>
-<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://192.168.23.142/id/epm/coversheets-latex'>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://localhost:8080/id/epm/coversheets-latex'>
   <epmid>coversheets-latex</epmid>
   <uri>http://192.168.23.142/id/epm/coversheets-latex</uri>
   <documents>
     <document>
       <files>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>3ed8c974778380b78da63815b9bbfcc3</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>911</filesize>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>epm/coversheets-latex/cfg/cfg.d/zz_coverpage_fields.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>3d87b8e7d0f2bc1f5b3347cdb4779439</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>229</filesize>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>epm/coversheets-latex/cfg/citations/eprint/coverpage_latex.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>35888bb3f2b8063c4940a408d713a4d3</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>2859</filesize>
+        </file>
         <file>
           <datasetid>document</datasetid>
           <filename>lang/en/phrases/coverpage.xml</filename>
@@ -15,44 +39,28 @@
         </file>
         <file>
           <datasetid>document</datasetid>
-          <filename>plugins/EPrints/Plugin/Coverpage.pm</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>1343b54b8874ea82389b051efb0d8dc4</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>4567</filesize>
-        </file>
-        <file>
-          <datasetid>document</datasetid>
           <filename>plugins/EPrints/Plugin/Convert/CoverLatex.pm</filename>
           <mime_type>text/plain</mime_type>
-          <hash>b5f54873399abed1495439d29b1b8247</hash>
+          <hash>6cd0e38ce151f2385b3bf1ee10a7fce6</hash>
           <hash_type>MD5</hash_type>
-          <filesize>12208</filesize>
+          <filesize>11967</filesize>
         </file>
         <file>
           <datasetid>document</datasetid>
-          <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
+          <filename>plugins/EPrints/Plugin/Coverpage.pm</filename>
           <mime_type>text/plain</mime_type>
-          <hash>0a65b007efa35ae8f6ca7afa023908ba</hash>
+          <hash>4f1e9465f3cbbb2c3a859fe0c53650d5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2529</filesize>
-        </file>
-        <file>
-          <datasetid>document</datasetid>
-          <filename>epm/coversheets-latex/cfg/citations/eprint/coverpage_latex.xml</filename>
-          <mime_type>application/xml</mime_type>
-          <hash>35888bb3f2b8063c4940a408d713a4d3</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>2859</filesize>
+          <filesize>6721</filesize>
         </file>
       </files>
-      <mime_type>application/xml</mime_type>
-      <format>other</format>
-      <main>epm/coversheets-latex/cfg/citations/eprint/coverpage_latex.xml</main>
+      <mime_type>text/plain</mime_type>
+      <format>text</format>
+      <main>plugins/EPrints/Plugin/Coverpage.pm</main>
       <content>install</content>
     </document>
   </documents>
-  <version>0.6.1</version>
+  <version>0.7</version>
   <creators>
     <item>
       <name>
