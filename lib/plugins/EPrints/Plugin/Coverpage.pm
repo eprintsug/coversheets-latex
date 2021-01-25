@@ -148,6 +148,7 @@ sub make_coverpage
 sub remove_coverpage
 {
     my( $self, $doc, @cpages ) = @_;
+
     unless( @cpages ) # we've not been told which coverpages to remove, so lets get all the coverpages
     {
         @cpages = $self->_get_coverpages($doc);
@@ -159,6 +160,27 @@ sub remove_coverpage
         $doc->remove_object_relations( $cp ); # remove relation from original doc
         $cp->remove(); # and remove the coverpage
     }
+
+    # Check for the isCoverPage relation and remove anything that we might find there! (in case the hasCoverPage has been clobbered already
+    my $ds = $doc->dataset;
+
+    my $filters = [
+        {
+            meta_fields => [ 'relation_type' ],
+            value => EPrints::Utils::make_relation( 'isCoverPageVersionOf' ),
+        },
+        {
+            meta_fields => [ 'relation_uri' ],
+            value => '/id/document/' . $doc->id,
+        },
+    ];
+
+    my $cps = $ds->search( filters => $filters );
+    $cps->map( sub{
+        my( undef, undef, $cp ) = @_;
+        $cp->remove();   
+    } );
+    
     $doc->commit();
 }
 
