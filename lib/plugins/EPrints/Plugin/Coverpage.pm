@@ -8,6 +8,7 @@ package EPrints::Plugin::Coverpage;
 use strict;
 use warnings;
 use Scalar::Util;
+use Encode qw( encode_utf8 );
 use Digest::MD5 qw(md5_hex);
 
 our @ISA = qw/ EPrints::Plugin /;
@@ -262,7 +263,7 @@ sub _serialise_and_hash_metadata
             $serialised .= $data->{$key};
         }
     }
-    return md5_hex( $serialised );
+    return md5_hex( encode_utf8( $serialised ) );
 }
 
 sub log
