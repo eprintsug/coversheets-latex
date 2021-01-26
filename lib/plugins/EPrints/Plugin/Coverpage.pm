@@ -135,7 +135,7 @@ sub make_coverpage
     
         # get a hash of all the relevant data used to create the coverpage so we can check in future if any of it has changed and we might need a new coverpage
         my %data = $self->get_metadata( $eprint, $doc );
-        $doc->set_value( 'coverpage_hash', md5_hex( %data ) );
+        $doc->set_value( 'coverpage_hash', $self->_serialise_and_hash_metadata( \%data ) );
         $doc->commit;
     }
     else
@@ -230,7 +230,7 @@ sub is_current
         # generate a new coverpage data hash to see if anything has changed
         # first get the data we'd use to generate a coverpage
         my %data = $self->get_metadata( $eprint, $doc );
-        $current_hash = md5_hex(%data);
+        $current_hash = $self->_serialise_and_hash_metadata( \%data ); 
     }
 
     # now compare our newly generated hash with the one stored by the document
@@ -244,6 +244,25 @@ sub is_current
         $self->log( "CP needs to be updated." );
         return 0;
     }
+}
+
+sub _serialise_and_hash_metadata
+{
+    my( $self, $data ) = @_;
+
+    my $serialised = "";
+    foreach my $key ( keys %{$data} )
+    {
+        if( ref( $data->{$key} ) =~ /^XML::LibXML/ )
+        {
+            $serialised .= EPrints::Utils::tree_to_utf8( $data->{$key}, undef, undef, undef, 1 );
+        }
+        else
+        {
+            $serialised .= $data->{$key};
+        }
+    }
+    return md5_hex( $serialised );
 }
 
 sub log
