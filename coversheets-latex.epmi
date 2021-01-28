@@ -9,9 +9,9 @@
           <datasetid>document</datasetid>
           <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>3ed8c974778380b78da63815b9bbfcc3</hash>
+          <hash>8364a624bbcc2a27972cb27204ff27f4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>911</filesize>
+          <filesize>1047</filesize>
         </file>
         <file>
           <datasetid>document</datasetid>
@@ -49,9 +49,9 @@
           <datasetid>document</datasetid>
           <filename>plugins/EPrints/Plugin/Coverpage.pm</filename>
           <mime_type>text/plain</mime_type>
-          <hash>969e8e69732667c8104927b8219355f8</hash>
+          <hash>cb4c28753891270fefc52d8ec061803b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7862</filesize>
+          <filesize>8269</filesize>
         </file>
       </files>
       <mime_type>text/plain</mime_type>
@@ -60,7 +60,7 @@
       <content>install</content>
     </document>
   </documents>
-  <version>0.8</version>
+  <version>0.9</version>
   <creators>
     <item>
       <name>
