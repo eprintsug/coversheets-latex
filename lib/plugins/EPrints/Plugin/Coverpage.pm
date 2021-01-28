@@ -34,7 +34,7 @@ sub get_metadata
     {
         if( ref( $coverpage_fields{$key} ) eq "CODE" ) # we have a custom function defined for this coverpage field
         {
-            $data{$key} = &{$coverpage_fields{$key}}( $eprint, $doc );
+            $data{$key} = &{$coverpage_fields{$key}}( $repo, $eprint, $doc );
         }
         elsif( !defined $coverpage_fields{$key} ) # just get the value of the field
         {
@@ -47,16 +47,26 @@ sub get_metadata
             # if field exists, get the metafield for the appropriate dataset and with the specified render options
             my $field = EPrints::Utils::field_from_config_string( $ds, $key );
 
-            #make sure we're dealing with the right kind of object
+            # make sure we're dealing with the right kind of object
             my $dataobj = $eprint;
             if( $field->dataset->id eq "document" )
             {
                 $dataobj = $doc;
             }
 
+            # if the field definition contained a '.' we're referring to a subobject, but we can't refer to these using a '.' in LaTeX so we'll swap out the '.' for an '_' when writing the data hash
+            $key =~ tr/\./_/;
+
             # render the value
-            my $value = $field->get_value( $dataobj );
-            $data{$key} = $field->render_value( $repo, $value, 0, 0, $dataobj );
+            if( $dataobj->is_set( $field->name ) )
+            {
+                my $value = $field->get_value( $dataobj );
+                $data{$key} = $field->render_value( $repo, $value, 0, 0, $dataobj );
+            }
+            else
+            {
+                $data{$key} = undef;
+            }
         }
         elsif( defined $coverpage_fields{$key} ) # we have a value we can simply pass along as is
         {

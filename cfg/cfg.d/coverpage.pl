@@ -15,14 +15,14 @@ $coverpage->{content_template} = 'coverpage_latex';
 # or use undef to just get the eprint field value as specified by the key
 $coverpage->{metadata} = {
     'citation' => sub{
-        my( $eprint ) = @_;
+        my( $repo, $eprint ) = @_;
         return $eprint->render_citation;
     },
     'url' => sub{
-        my( $eprint ) = @_;
+        my( $repo, $eprint ) = @_;
         return $eprint->url;
     },
-    'documents.content' => undef,
+    'documents.content' => undef, # "documents.content" cannot be used in the LaTeX citation file so all "." are converted to "_", i.e. "documents_content"
 	'creators_name;order=gf' => undef,
     'datestamp;res=month;style=long' => undef,
 };
