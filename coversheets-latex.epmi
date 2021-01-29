@@ -49,9 +49,9 @@
           <datasetid>document</datasetid>
           <filename>plugins/EPrints/Plugin/Coverpage.pm</filename>
           <mime_type>text/plain</mime_type>
-          <hash>cb4c28753891270fefc52d8ec061803b</hash>
+          <hash>d6899c2a4356a06f91f07ea4916c313f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>8269</filesize>
+          <filesize>8364</filesize>
         </file>
       </files>
       <mime_type>text/plain</mime_type>
