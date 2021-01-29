@@ -54,8 +54,13 @@ sub get_metadata
                 $dataobj = $doc;
             }
 
-            # if the field definition contained a '.' we're referring to a subobject, but we can't refer to these using a '.' in LaTeX so we'll swap out the '.' for an '_' when writing the data hash
+            # convert the key to a name we can use in the LaTeX citation
+            # any "." will need to be converted to a '_'
             $key =~ tr/\./_/;
+
+            # ...and parameters appear after a semicolon so we can discard those
+            my @key_parts = split /[\;]/, $key;
+            $key = $key_parts[0];
 
             # render the value
             if( $dataobj->is_set( $field->name ) )
