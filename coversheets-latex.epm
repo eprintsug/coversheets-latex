@@ -7,6 +7,36 @@
       <files>
         <file>
           <datasetid>document</datasetid>
+          <filename>epm/coversheets-latex/bin/clear_coverpage_hashes</filename>
+          <mime_type>text/x-perl</mime_type>
+          <hash>09216da6ab69007b3b9c11590b92a9f4</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1182</filesize>
+          <data encoding='base64'>IyEvdXNyL2Jpbi9wZXJsIC13Cgp1c2UgRmluZEJpbjsKdXNlIGxpYiAiJEZpbmRCaW46OkJpbi8u
+Li8uLi8uLi9wZXJsX2xpYiI7CgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMKIwojIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCgoKdXNl
+IEVQcmludHM7CnVzZSBzdHJpY3Q7CnVzZSBHZXRvcHQ6Okxvbmc7CnVzZSBQb2Q6OlVzYWdlOwoK
+bXkgJHJlcG9pZCA9ICRBUkdWWzBdOwpteSAkZXByaW50aWQgPSAkQVJHVlsxXTsKbXkgJHJlcG8g
+PSBuZXcgRVByaW50czo6U2Vzc2lvbiggMSAsICRyZXBvaWQgKTsKaWYoICFkZWZpbmVkICRyZXBv
+ICkKewogICAgICAgIHByaW50IFNUREVSUiAiRmFpbGVkIHRvIGxvYWQgcmVwb3NpdG9yeTogJHJl
+cG9pZFxuIjsKICAgICAgICBleGl0IDE7Cn0KCm15ICRkcyA9ICRzZXNzaW9uLT5nZXRfcmVwb3Np
+dG9yeS0+Z2V0X2RhdGFzZXQoICJkb2N1bWVudCIgKTsKbXkgJGRvY2lkX2ZpZWxkID0gJHNlc3Np
+b24tPmRhdGFzZXQoICJkb2N1bWVudCIgKS0+Z2V0X2ZpZWxkKCAiZG9jaWQiICk7CgpteSAkc3Fs
+ID0gIlNFTEVDVCBkb2NpZCBGUk9NIGRvY3VtZW50IFdIRVJFIGNvdmVycGFnZV9oYXNoIElTIE5P
+VCBOVUxMIjsKbXkgJHN0aCA9ICRyZXBvLT5nZXRfZGF0YWJhc2UtPnByZXBhcmVfc2VsZWN0KCAk
+c3FsICk7CiRyZXBvLT5nZXRfZGF0YWJhc2UtPmV4ZWN1dGUoICRzdGggLCAkc3FsICk7CgpteSBA
+aWRzID0gKCk7CgpteSAkcm93cyA9ICRzdGgtPnJvd3M7CndoaWxlKCBteSBAcm93ID0gJHN0aC0+
+ZmV0Y2hyb3dfYXJyYXkgKQp7CiAgICBteSAkZG9jaWQgPSAkZG9jaWRfZmllbGQtPnZhbHVlX2Zy
+b21fc3FsX3JvdyggJHNlc3Npb24sIFxAcm93ICk7CiAgICBwdXNoIEBpZHMsICRkb2NpZDsKfQoK
+bXkgJGxpc3QgPSBFUHJpbnRzOjpMaXN0LT5uZXcoIHJlcG9zaXRvcnkgPT4gJHNlc3Npb24sIGRh
+dGFzZXQgPT4gJGRzLCBpZHMgPT4gXEBpZHMgKTsKJGxpc3QtPm1hcChzdWJ7CiAgICBteSgkc2Vz
+c2lvbiwgJGRhdGFzZXQsICRkb2MpID0gQF87CgogICAgJGRvYy0+c2V0X3ZhbHVlKCAiY292ZXJw
+YWdlX2hhc2giLCB1bmRlZiApOwogICAgJGRvYy0+Y29tbWl0Owp9KTsK
+</data>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
           <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
           <mime_type>text/plain</mime_type>
           <hash>ceec3e451049b84fa69fa8b841142ad7</hash>

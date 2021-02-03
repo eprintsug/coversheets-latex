@@ -7,6 +7,14 @@
       <files>
         <file>
           <datasetid>document</datasetid>
+          <filename>epm/coversheets-latex/bin/clear_coverpage_hashes</filename>
+          <mime_type>text/x-perl</mime_type>
+          <hash>09216da6ab69007b3b9c11590b92a9f4</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1182</filesize>
+        </file>
+        <file>
+          <datasetid>document</datasetid>
           <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
           <mime_type>text/plain</mime_type>
           <hash>ceec3e451049b84fa69fa8b841142ad7</hash>
