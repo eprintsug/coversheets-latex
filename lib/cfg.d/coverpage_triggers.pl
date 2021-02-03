@@ -15,7 +15,7 @@ $c->add_trigger( EPrints::Const::EP_TRIGGER_DOC_URL_REWRITE, sub {
     }
   
     my $repo = $doc->get_session->get_repository;
-    my $noise = $repo->get_conf("coverpage","debug");
+    my $noise = $repo->get_conf( "coverpage","debug" );
 
     # do we have a coverpage plugin we can do coverpage stuff with (i.e. checking, adding, removing coverpages)
     my $cp_plugin = $repo->plugin( 'Coverpage' );
@@ -27,13 +27,29 @@ $c->add_trigger( EPrints::Const::EP_TRIGGER_DOC_URL_REWRITE, sub {
 
     # don't generate a coverpage if this doc doesn't want one
     my $cpvalue = $doc->get_value( 'coverpage' ); # value set by user in the upload form
-    if( !defined $cpvalue || $cpvalue eq 'FALSE' )
+    
+    my $coverpage_default_on = $repo->get_conf( "coverpage", "default_on" );
+    if( $coverpage_default_on ) # coverpages on by default, only disable if explicity set to FALSE
     {
-        $repo->log( "coverpage disabled for doc " . $doc->get_id ) if( $noise );
+        if( defined $cpvalue && $cpvalue eq 'FALSE' )
+        {
+            $repo->log( "coverpage disabled for doc " . $doc->get_id ) if( $noise );
 
-        # remove any coverpages we might have generated previously
-        $cp_plugin->remove_coverpage( $doc );
-        return undef;
+            # remove any coverpages we might have generated previously
+            $cp_plugin->remove_coverpage( $doc );
+            return undef;
+        }
+    }
+    else # coverpages off by default, disable if not set or set to FALSE
+    {
+        if( !defined $cpvalue || $cpvalue eq 'FALSE' )
+        {
+            $repo->log( "coverpage disabled for doc " . $doc->get_id ) if( $noise );
+
+            # remove any coverpages we might have generated previously
+            $cp_plugin->remove_coverpage( $doc );
+            return undef;
+        }
     }
 
     # do we have a current, up-to-date coverpage?

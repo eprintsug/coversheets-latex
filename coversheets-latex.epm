@@ -9,28 +9,32 @@
           <datasetid>document</datasetid>
           <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>8364a624bbcc2a27972cb27204ff27f4</hash>
+          <hash>ceec3e451049b84fa69fa8b841142ad7</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1047</filesize>
+          <filesize>1262</filesize>
           <data encoding='base64'>JGMtPntwbHVnaW5zfXsiQ292ZXJwYWdlIn17cGFyYW1zfXtkaXNhYmxlfSA9IDA7CiRjLT57cGx1
-Z2luc317IkNvbnZlcnQ6OkNvdmVyTGF0ZXgifXtwYXJhbXN9e2Rpc2FibGV9ID0gMDsKCm15ICRj
-b3ZlcnBhZ2UgPSB7fTsKJGMtPntjb3ZlcnBhZ2V9ID0gJGNvdmVycGFnZTsKCiRjLT57ZXhlY3V0
-YWJsZXN9LT57cGRmbGF0ZXh9ID0gIi91c3IvYmluL3BkZmxhdGV4IjsKJGMtPntleGVjdXRhYmxl
-c30tPntwZGZ0a30gPSAiL3Vzci9iaW4vcGRmdGsiOwokYy0+e2V4ZWN1dGFibGVzfS0+e3BkZmlu
-Zm99ID0gWyAiL3Vzci9iaW4vcGRmaW5mbyIgXTsKCiRjb3ZlcnBhZ2UtPntjb250ZW50X3RlbXBs
-YXRlfSA9ICdjb3ZlcnBhZ2VfbGF0ZXgnOwoKIyBhIGhhc2ggb2YgZmllbGRzIGFuZCB2YWx1ZXMK
-IyBjdXN0b20gZnVuY3Rpb25zIG9yIHN0cmluZ3MgY2FuIGJlIHVzZWQgYXMgYSBoYXNoIHZhbHVl
-IHRvIHJldHVybiB0aGUgcmVzdWx0IG9mIHRoZSBmdW5jdGlvbiwgb3IgdGhlIHN0cmluZwojIG9y
-IHVzZSB1bmRlZiB0byBqdXN0IGdldCB0aGUgZXByaW50IGZpZWxkIHZhbHVlIGFzIHNwZWNpZmll
-ZCBieSB0aGUga2V5CiRjb3ZlcnBhZ2UtPnttZXRhZGF0YX0gPSB7CiAgICAnY2l0YXRpb24nID0+
-IHN1YnsKICAgICAgICBteSggJHJlcG8sICRlcHJpbnQgKSA9IEBfOwogICAgICAgIHJldHVybiAk
-ZXByaW50LT5yZW5kZXJfY2l0YXRpb247CiAgICB9LAogICAgJ3VybCcgPT4gc3ViewogICAgICAg
-IG15KCAkcmVwbywgJGVwcmludCApID0gQF87CiAgICAgICAgcmV0dXJuICRlcHJpbnQtPnVybDsK
-ICAgIH0sCiAgICAnZG9jdW1lbnRzLmNvbnRlbnQnID0+IHVuZGVmLCAjICJkb2N1bWVudHMuY29u
-dGVudCIgY2Fubm90IGJlIHVzZWQgaW4gdGhlIExhVGVYIGNpdGF0aW9uIGZpbGUgc28gYWxsICIu
-IiBhcmUgY29udmVydGVkIHRvICJfIiwgaS5lLiAiZG9jdW1lbnRzX2NvbnRlbnQiCgknY3JlYXRv
-cnNfbmFtZTtvcmRlcj1nZicgPT4gdW5kZWYsCiAgICAnZGF0ZXN0YW1wO3Jlcz1tb250aDtzdHls
-ZT1sb25nJyA9PiB1bmRlZiwKfTsK
+Z2luc317IkNvbnZlcnQ6OkNvdmVyTGF0ZXgifXtwYXJhbXN9e2Rpc2FibGV9ID0gMDsKCiMgc2V0
+IGNvdmVycGFnZXMgdG8gYmUgb24gYnkgZGVmYXVsdCAoaS5lLiBpZiBjb3ZlcnBhZ2UgZmllbGQg
+aXMgbGVmdCBVTlNQRUNJRklFRCBhIGNvdmVycGFnZSB3aWxsIGJlIGFkZGVkKQojIHNldCBiZWxv
+dyB2YWx1ZSB0byAwIGlmIFVOU1BFQ0lGSUVEIHNob3VsZCBub3QgYWRkIGEgY292ZXJwYWdlCiRj
+LT57Y292ZXJwYWdlfS0+e2RlZmF1bHRfb259ID0gMTsKCm15ICRjb3ZlcnBhZ2UgPSB7fTsKJGMt
+Pntjb3ZlcnBhZ2V9ID0gJGNvdmVycGFnZTsKCiRjLT57ZXhlY3V0YWJsZXN9LT57cGRmbGF0ZXh9
+ID0gIi91c3IvYmluL3BkZmxhdGV4IjsKJGMtPntleGVjdXRhYmxlc30tPntwZGZ0a30gPSAiL3Vz
+ci9iaW4vcGRmdGsiOwokYy0+e2V4ZWN1dGFibGVzfS0+e3BkZmluZm99ID0gWyAiL3Vzci9iaW4v
+cGRmaW5mbyIgXTsKCiRjb3ZlcnBhZ2UtPntjb250ZW50X3RlbXBsYXRlfSA9ICdjb3ZlcnBhZ2Vf
+bGF0ZXgnOwoKIyBhIGhhc2ggb2YgZmllbGRzIGFuZCB2YWx1ZXMKIyBjdXN0b20gZnVuY3Rpb25z
+IG9yIHN0cmluZ3MgY2FuIGJlIHVzZWQgYXMgYSBoYXNoIHZhbHVlIHRvIHJldHVybiB0aGUgcmVz
+dWx0IG9mIHRoZSBmdW5jdGlvbiwgb3IgdGhlIHN0cmluZwojIG9yIHVzZSB1bmRlZiB0byBqdXN0
+IGdldCB0aGUgZXByaW50IGZpZWxkIHZhbHVlIGFzIHNwZWNpZmllZCBieSB0aGUga2V5CiRjLT57
+Y292ZXJwYWdlfS0+e21ldGFkYXRhfSA9IHsKICAgICdjaXRhdGlvbicgPT4gc3ViewogICAgICAg
+IG15KCAkcmVwbywgJGVwcmludCApID0gQF87CiAgICAgICAgcmV0dXJuICRlcHJpbnQtPnJlbmRl
+cl9jaXRhdGlvbjsKICAgIH0sCiAgICAndXJsJyA9PiBzdWJ7CiAgICAgICAgbXkoICRyZXBvLCAk
+ZXByaW50ICkgPSBAXzsKICAgICAgICByZXR1cm4gJGVwcmludC0+dXJsOwogICAgfSwKICAgICdk
+b2N1bWVudHMuY29udGVudCcgPT4gdW5kZWYsICMgImRvY3VtZW50cy5jb250ZW50IiBjYW5ub3Qg
+YmUgdXNlZCBpbiB0aGUgTGFUZVggY2l0YXRpb24gZmlsZSBzbyBhbGwgIi4iIGFyZSBjb252ZXJ0
+ZWQgdG8gIl8iLCBpLmUuICJkb2N1bWVudHNfY29udGVudCIKCSdjcmVhdG9yc19uYW1lO29yZGVy
+PWdmJyA9PiB1bmRlZiwKICAgICdkYXRlc3RhbXA7cmVzPW1vbnRoO3N0eWxlPWxvbmcnID0+IHVu
+ZGVmLAp9Owo=
 </data>
         </file>
         <file>
@@ -523,7 +527,7 @@ dG9yeSd9LT5sb2coJ1snLiRzZWxmLT57J2lkJ30uIl06IEBfIik7Cn0K
       <content>install</content>
     </document>
   </documents>
-  <version>0.9</version>
+  <version>1.0</version>
   <creators>
     <item>
       <name>

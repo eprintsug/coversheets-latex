@@ -9,9 +9,9 @@
           <datasetid>document</datasetid>
           <filename>epm/coversheets-latex/cfg/cfg.d/coverpage.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>8364a624bbcc2a27972cb27204ff27f4</hash>
+          <hash>ceec3e451049b84fa69fa8b841142ad7</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1047</filesize>
+          <filesize>1262</filesize>
         </file>
         <file>
           <datasetid>document</datasetid>
@@ -60,7 +60,7 @@
       <content>install</content>
     </document>
   </documents>
-  <version>0.9</version>
+  <version>1.0</version>
   <creators>
     <item>
       <name>

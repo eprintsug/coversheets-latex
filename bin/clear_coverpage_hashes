@@ -1,0 +1,48 @@
+#!/usr/bin/perl -w
+
+use FindBin;
+use lib "$FindBin::Bin/../../../perl_lib";
+
+######################################################################
+#
+#
+######################################################################
+
+
+use EPrints;
+use strict;
+use Getopt::Long;
+use Pod::Usage;
+
+my $repoid = $ARGV[0];
+my $eprintid = $ARGV[1];
+my $repo = new EPrints::Session( 1 , $repoid );
+if( !defined $repo )
+{
+        print STDERR "Failed to load repository: $repoid\n";
+        exit 1;
+}
+
+my $ds = $session->get_repository->get_dataset( "document" );
+my $docid_field = $session->dataset( "document" )->get_field( "docid" );
+
+my $sql = "SELECT docid FROM document WHERE coverpage_hash IS NOT NULL";
+my $sth = $repo->get_database->prepare_select( $sql );
+$repo->get_database->execute( $sth , $sql );
+
+my @ids = ();
+
+my $rows = $sth->rows;
+while( my @row = $sth->fetchrow_array )
+{
+    my $docid = $docid_field->value_from_sql_row( $session, \@row );
+    push @ids, $docid;
+}
+
+my $list = EPrints::List->new( repository => $session, dataset => $ds, ids => \@ids );
+$list->map(sub{
+    my($session, $dataset, $doc) = @_;
+
+    $doc->set_value( "coverpage_hash", undef );
+    $doc->commit;
+});
