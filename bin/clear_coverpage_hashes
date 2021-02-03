@@ -23,8 +23,8 @@ if( !defined $repo )
         exit 1;
 }
 
-my $ds = $session->get_repository->get_dataset( "document" );
-my $docid_field = $session->dataset( "document" )->get_field( "docid" );
+my $ds = $repo->get_repository->get_dataset( "document" );
+my $docid_field = $repo->dataset( "document" )->get_field( "docid" );
 
 my $sql = "SELECT docid FROM document WHERE coverpage_hash IS NOT NULL";
 my $sth = $repo->get_database->prepare_select( $sql );
@@ -35,13 +35,13 @@ my @ids = ();
 my $rows = $sth->rows;
 while( my @row = $sth->fetchrow_array )
 {
-    my $docid = $docid_field->value_from_sql_row( $session, \@row );
+    my $docid = $docid_field->value_from_sql_row( $repo, \@row );
     push @ids, $docid;
 }
 
-my $list = EPrints::List->new( repository => $session, dataset => $ds, ids => \@ids );
+my $list = EPrints::List->new( repository => $repo, dataset => $ds, ids => \@ids );
 $list->map(sub{
-    my($session, $dataset, $doc) = @_;
+    my($repo, $dataset, $doc) = @_;
 
     $doc->set_value( "coverpage_hash", undef );
     $doc->commit;
