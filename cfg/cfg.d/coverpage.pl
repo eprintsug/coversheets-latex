@@ -1,12 +1,12 @@
 $c->{plugins}{"Coverpage"}{params}{disable} = 0;
 $c->{plugins}{"Convert::CoverLatex"}{params}{disable} = 0;
 
+my $coverpage = {};
+$c->{coverpage} = $coverpage;
+
 # set coverpages to be on by default (i.e. if coverpage field is left UNSPECIFIED a coverpage will be added)
 # set below value to 0 if UNSPECIFIED should not add a coverpage
 $c->{coverpage}->{default_on} = 1;
-
-my $coverpage = {};
-$c->{coverpage} = $coverpage;
 
 $c->{executables}->{pdflatex} = "/usr/bin/pdflatex";
 $c->{executables}->{pdftk} = "/usr/bin/pdftk";
