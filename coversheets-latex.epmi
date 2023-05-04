@@ -49,9 +49,9 @@
           <datasetid>document</datasetid>
           <filename>plugins/EPrints/Plugin/Convert/CoverLatex.pm</filename>
           <mime_type>text/plain</mime_type>
-          <hash>6cd0e38ce151f2385b3bf1ee10a7fce6</hash>
+          <hash>5bdb739f22a7d39dffad8e16aa9688bc</hash>
           <hash_type>MD5</hash_type>
-          <filesize>11967</filesize>
+          <filesize>12250</filesize>
         </file>
         <file>
           <datasetid>document</datasetid>
@@ -68,7 +68,7 @@
       <content>install</content>
     </document>
   </documents>
-  <version>1.0</version>
+  <version>1.1</version>
   <creators>
     <item>
       <name>

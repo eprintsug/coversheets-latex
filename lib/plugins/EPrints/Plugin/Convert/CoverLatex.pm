@@ -261,7 +261,13 @@ sub doc_citation
 
     # EPC::process encodes entities in %params
     my $latex = EPrints::XML::EPC::process( $cspec, %params );
-    return &_decode_entities_latex( $latex->toString );
+
+    # Sometimes latex likes to use things as syntax which we can store cleanly in XML...
+    # So we replace these with our own things, e.g. epc_col_separator can be used to separate columns in tabular
+	my $latex_string =  $latex->toString;
+	$latex_string =~ s/epc_col_separator/&/g;
+
+    return &_decode_entities_latex( $latex_string );
 }
 
 sub get_document_file
