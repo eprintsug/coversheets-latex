@@ -375,6 +375,15 @@ sub _xml2latex
         {
             push( @parts, "\n\n" );
         }
+        elsif( $tagname eq 'img' )
+        {
+            my @graphic_options;
+            for my $attr ($node->attributes)
+            {
+                push @graphic_options, $attr->getName . "=" . $attr->getValue unless $attr->getName eq "src";
+            }                     
+            push(@parts, '\includegraphics[', join(",",@graphic_options), ']{', $node->getAttribute('src'), '}' );
+        }
         else
         {
             # ignore unknown elements and their contents
