@@ -267,7 +267,7 @@ sub _serialise_and_hash_metadata
     my( $self, $data ) = @_;
 
     my $serialised = "";
-    foreach my $key ( keys %{$data} )
+    foreach my $key ( sort keys %{$data} )
     {
         if( ref( $data->{$key} ) =~ /^XML::LibXML/ )
         {
