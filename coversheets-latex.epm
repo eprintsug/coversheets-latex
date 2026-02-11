@@ -411,9 +411,9 @@ MTsK
           <datasetid>document</datasetid>
           <filename>plugins/EPrints/Plugin/Coverpage.pm</filename>
           <mime_type>text/plain</mime_type>
-          <hash>d6899c2a4356a06f91f07ea4916c313f</hash>
+          <hash>b4a506fd41e784fb4c3f0500f54b7544</hash>
           <hash_type>MD5</hash_type>
-          <filesize>8364</filesize>
+          <filesize>8369</filesize>
           <data encoding='base64'>cGFja2FnZSBFUHJpbnRzOjpQbHVnaW46OkNvdmVycGFnZTsKCiMKIyAkSWQ6IENvdmVycGFnZS5w
 bSAxNjgzOSAyMDExLTA0LTE5IDEyOjMyOjM2WiBiZXJnb2x0aCAkCiMgJFVSTDogaHR0cHM6Ly9z
 dm4ud3UuYWMuYXQvcmVwby9iYWNoL3RydW5rL2VwdWIvY292ZXJwYWdlLXBsdWdpbi9jZmcvcGx1
@@ -553,14 +553,14 @@ KCAiQ1AgaXMgY3VycmVudC4iICk7CiAgICAgICAgcmV0dXJuIDE7CiAgICB9CiAgICBlbHNlCiAg
 ICB7CiAgICAgICAgJHNlbGYtPmxvZyggIkNQIG5lZWRzIHRvIGJlIHVwZGF0ZWQuIiApOwogICAg
 ICAgIHJldHVybiAwOwogICAgfQp9CgpzdWIgX3NlcmlhbGlzZV9hbmRfaGFzaF9tZXRhZGF0YQp7
 CiAgICBteSggJHNlbGYsICRkYXRhICkgPSBAXzsKCiAgICBteSAkc2VyaWFsaXNlZCA9ICIiOwog
-ICAgZm9yZWFjaCBteSAka2V5ICgga2V5cyAleyRkYXRhfSApCiAgICB7CiAgICAgICAgaWYoIHJl
-ZiggJGRhdGEtPnska2V5fSApID1+IC9eWE1MOjpMaWJYTUwvICkKICAgICAgICB7CiAgICAgICAg
-ICAgICRzZXJpYWxpc2VkIC49IEVQcmludHM6OlV0aWxzOjp0cmVlX3RvX3V0ZjgoICRkYXRhLT57
-JGtleX0sIHVuZGVmLCB1bmRlZiwgdW5kZWYsIDEgKTsKICAgICAgICB9CiAgICAgICAgZWxzZQog
-ICAgICAgIHsKICAgICAgICAgICAgJHNlcmlhbGlzZWQgLj0gJGRhdGEtPnska2V5fTsKICAgICAg
-ICB9CiAgICB9CiAgICByZXR1cm4gbWQ1X2hleCggZW5jb2RlX3V0ZjgoICRzZXJpYWxpc2VkICkg
-KTsKfQoKc3ViIGxvZwp7CiAgICBteSAkc2VsZiA9IHNoaWZ0OwogICAgJHNlbGYtPnsncmVwb3Np
-dG9yeSd9LT5sb2coJ1snLiRzZWxmLT57J2lkJ30uIl06IEBfIik7Cn0K
+ICAgZm9yZWFjaCBteSAka2V5ICggc29ydCBrZXlzICV7JGRhdGF9ICkKICAgIHsKICAgICAgICBp
+ZiggcmVmKCAkZGF0YS0+eyRrZXl9ICkgPX4gL15YTUw6OkxpYlhNTC8gKQogICAgICAgIHsKICAg
+ICAgICAgICAgJHNlcmlhbGlzZWQgLj0gRVByaW50czo6VXRpbHM6OnRyZWVfdG9fdXRmOCggJGRh
+dGEtPnska2V5fSwgdW5kZWYsIHVuZGVmLCB1bmRlZiwgMSApOwogICAgICAgIH0KICAgICAgICBl
+bHNlCiAgICAgICAgewogICAgICAgICAgICAkc2VyaWFsaXNlZCAuPSAkZGF0YS0+eyRrZXl9Owog
+ICAgICAgIH0KICAgIH0KICAgIHJldHVybiBtZDVfaGV4KCBlbmNvZGVfdXRmOCggJHNlcmlhbGlz
+ZWQgKSApOwp9CgpzdWIgbG9nCnsKICAgIG15ICRzZWxmID0gc2hpZnQ7CiAgICAkc2VsZi0+eydy
+ZXBvc2l0b3J5J30tPmxvZygnWycuJHNlbGYtPnsnaWQnfS4iXTogQF8iKTsKfQo=
 </data>
         </file>
       </files>
