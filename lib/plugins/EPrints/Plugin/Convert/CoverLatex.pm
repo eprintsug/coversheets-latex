@@ -183,7 +183,17 @@ sub export
     }
 
     # prepend cover page
-    system( $pdftk, $pdf_file, $plugin->get_document_file($doc), "cat", "output", $output_path );
+    my $append = $repository->get_conf( "coverpage", "append" );
+
+    if( $append == 0 )
+    {
+        system( $pdftk, $pdf_file, $plugin->get_document_file($doc), "cat", "output", $output_path );
+    }
+    elsif( $append == 1 )
+    {
+        system( $pdftk, $plugin->get_document_file($doc), $pdf_file, "cat", "output", $output_path );
+    }
+
     $rc = $?;
     $plugin->log( "executing $pdftk $pdf_file " . $plugin->get_document_file($doc) . " cat output $output_path; rc=$rc" ) if ($noise);
 

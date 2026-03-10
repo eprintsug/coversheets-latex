@@ -8,6 +8,9 @@ $c->{coverpage} = $coverpage;
 # set below value to 0 if UNSPECIFIED should not add a coverpage
 $c->{coverpage}->{default_on} = 1;
 
+# by default coverpages appear before the document. set the append option to 1 if you want them to appear after the document instead
+$c->{coverpage}->{append} = 0;
+
 $c->{executables}->{pdflatex} = "/usr/bin/pdflatex";
 $c->{executables}->{pdftk} = "/usr/bin/pdftk";
 $c->{executables}->{pdfinfo} = [ "/usr/bin/pdfinfo" ];
