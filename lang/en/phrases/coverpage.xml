@@ -9,6 +9,8 @@
 <epp:phrase id="document_fieldhelp_coverpage">Prepend an automatically generated coverpage? (This is only supported for PDF documents.)</epp:phrase>
 <epp:phrase id="document_radio_coverpage"><label><epc:pin name="true"/>Yes, prepend an automatically generated coverpage.</label><br/><label><epc:pin name="false"/>No, do not prepend a coverpage.</label></epp:phrase>
 
+<epp:phrase id="document_radio_coverpage_true">Yes</epp:phrase>
+<epp:phrase id="document_radio_coverpage_false">No</epp:phrase>
 
 <!-- ************************* Coverpage template ************************* -->
 
