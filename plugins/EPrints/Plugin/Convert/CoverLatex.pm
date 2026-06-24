@@ -120,7 +120,15 @@ sub export
         $plugin->log( "Failed to create dir $latex_dir" );
         return;
     }
-
+	
+    # Uncomment this in order to retain a cover.tex in the event
+    # of an error uncaught by the attempt below (Add a docid to contrain)
+    # The resulting file can then be taken away for rendering/testing
+    #if($doc->id == <ADD A DOC ID>)
+    #{
+    #  $latex_dir = "/var/www/eprints/cover"; # YOU NEED TO CREATE THIS DIR (owned by eprints)
+    #}
+	
     # write coverpage content to cover.tex
     my $latex_file = EPrints::Platform::join_path( $latex_dir, "cover.tex" );
     if( !open( LATEX, '>:utf8', $latex_file ) )
