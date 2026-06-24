@@ -27,6 +27,10 @@ my $ds = $repo->get_repository->get_dataset( "document" );
 my $docid_field = $repo->dataset( "document" )->get_field( "docid" );
 
 my $sql = "SELECT docid FROM document WHERE coverpage_hash IS NOT NULL";
+if(defined $eprintid)
+{
+    $sql .= " AND eprintid = $eprintid";
+}
 my $sth = $repo->get_database->prepare_select( $sql );
 $repo->get_database->execute( $sth , $sql );
 
